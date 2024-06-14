@@ -78,6 +78,7 @@
 		469D91002C13257B000ABE8C /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		469D91022C1327E4000ABE8C /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		469D91042C1327EF000ABE8C /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		469D91062C140EB9000ABE8C /* GangwonDoranDoran.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GangwonDoranDoran.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +138,7 @@
 		469D90A12C131489000ABE8C /* GangwonDoranDoran */ = {
 			isa = PBXGroup;
 			children = (
+				469D91062C140EB9000ABE8C /* GangwonDoranDoran.entitlements */,
 				469D90D42C131596000ABE8C /* Model */,
 				469D90D52C13159D000ABE8C /* View */,
 				469D90D72C1315B4000ABE8C /* ViewController */,
@@ -555,6 +557,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GangwonDoranDoran/GangwonDoranDoran.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7K76RWRQBL;
@@ -583,6 +586,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GangwonDoranDoran/GangwonDoranDoran.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7K76RWRQBL;
