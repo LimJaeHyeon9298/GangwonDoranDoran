@@ -37,7 +37,6 @@ class AppCoordinator:Coordinator {
                 self?.showHome()
             }
             .store(in: &cancellables)
-        
     }
     
     
