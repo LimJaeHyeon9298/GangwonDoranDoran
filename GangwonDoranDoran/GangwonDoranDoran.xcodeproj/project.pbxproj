@@ -35,6 +35,8 @@
 		469D91012C13257B000ABE8C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D91002C13257B000ABE8C /* SecondViewController.swift */; };
 		469D91032C1327E4000ABE8C /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D91022C1327E4000ABE8C /* ThirdViewController.swift */; };
 		469D91052C1327EF000ABE8C /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D91042C1327EF000ABE8C /* FourthViewController.swift */; };
+		46F1099D2C2ACE8D006AD5F6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F1099C2C2ACE8D006AD5F6 /* LoginViewModel.swift */; };
+		46F1099F2C2AD41B006AD5F6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F1099E2C2AD41B006AD5F6 /* AppCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		469D91022C1327E4000ABE8C /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		469D91042C1327EF000ABE8C /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		469D91062C140EB9000ABE8C /* GangwonDoranDoran.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GangwonDoranDoran.entitlements; sourceTree = "<group>"; };
+		46F1099C2C2ACE8D006AD5F6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		46F1099E2C2AD41B006AD5F6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				469D90DE2C13162C000ABE8C /* HomeViewModel.swift */,
+				46F1099C2C2ACE8D006AD5F6 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				469D90AB2C13148B000ABE8C /* Assets.xcassets */,
 				469D90A42C131489000ABE8C /* SceneDelegate.swift */,
 				469D90A22C131489000ABE8C /* AppDelegate.swift */,
+				46F1099E2C2AD41B006AD5F6 /* AppCoordinator.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -376,10 +382,12 @@
 				469D90FB2C132165000ABE8C /* LoginViewController.swift in Sources */,
 				469D90A32C131489000ABE8C /* AppDelegate.swift in Sources */,
 				469D90FD2C1321AD000ABE8C /* MainTabController.swift in Sources */,
+				46F1099F2C2AD41B006AD5F6 /* AppCoordinator.swift in Sources */,
 				469D90E12C131633000ABE8C /* HomeView.swift in Sources */,
 				469D90DF2C13162C000ABE8C /* HomeViewModel.swift in Sources */,
 				469D90DD2C131608000ABE8C /* Fonts+.swift in Sources */,
 				469D90E32C13163A000ABE8C /* HomeModel.swift in Sources */,
+				46F1099D2C2ACE8D006AD5F6 /* LoginViewModel.swift in Sources */,
 				469D90DB2C1315FF000ABE8C /* Colors+.swift in Sources */,
 				469D90A52C131489000ABE8C /* SceneDelegate.swift in Sources */,
 				469D91052C1327EF000ABE8C /* FourthViewController.swift in Sources */,

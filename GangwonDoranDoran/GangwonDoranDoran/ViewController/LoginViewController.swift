@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import Then
 import AuthenticationServices
+import Combine
 
 
 enum LoginType {
@@ -19,10 +20,26 @@ enum LoginType {
 }
 
 class LoginViewController: UIViewController {
+   
+    var viewModel:LoginViewModel
+    weak var coordinator:AppCoordinator?
+    var cancellables = Set<AnyCancellable>()
+
+    
+    init(viewModel:LoginViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
         setupLoginButtons()
+        bindViewModel() 
     }
     
     private func setupLoginButtons() {
@@ -94,67 +111,22 @@ class LoginViewController: UIViewController {
         }
         
         button.configuration = config
-        button.addAction(UIAction(handler: { [weak self] _ in
-            self?.loginAction(for: type)
+        button.addAction(UIAction(handler: { _ in
+           // self?.loginAction(for: type)
+            self.viewModel.loginAction(for: type)
+            print("Button pressed: \(type)")
         }), for: .touchUpInside)
         
         return button
     }
-//    private func createCustomButton(title: String, imageName: String? = nil, backgroundColor: UIColor = .white, textColor: UIColor = .black, fontSize: CGFloat = 16, borderColor: UIColor? = nil, borderWidth: CGFloat = 0, type: LoginType) -> UIButton {
-//        let button = UIButton(type: .system)
-//        
-//        // Configuration for the button
-//        var config = UIButton.Configuration.filled()
-//        config.baseBackgroundColor = backgroundColor
-//        config.baseForegroundColor = textColor
-//        config.title = title
-//        config.titleAlignment = .center  // Title 중앙 정렬
-//        config.cornerStyle = .medium // 버튼의 모서리 스타일
-//        
-//        // Content Insets 조절
-//        config.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0)
-//
-//        // Set the font size for the button title
-//        config.attributedTitle = AttributedString(title, attributes: AttributeContainer([
-//            .font: UIFont.systemFont(ofSize: fontSize),
-//            .foregroundColor: textColor
-//        ]))
-//        
-//        // 이미지 설정
-//        if let imageName = imageName {
-//            config.image = UIImage(named: imageName)
-//            config.imagePlacement = .leading  // 이미지 위치 설정
-//            config.imagePadding = 40  // 이미지와 텍스트 사이 간격
-//        }
-//
-//        // Border 설정
-//        if let borderColor = borderColor {
-//            config.background.strokeColor = borderColor
-//            config.background.strokeWidth = borderWidth
-//        }
-//
-//        // Apply configuration to the button
-//        button.configuration = config
-//        button.addAction(UIAction(handler: { [weak self] _ in
-//            self?.loginAction(for: type)
-//        }), for: .touchUpInside)
-//
-//        return button
-//    }
-    
-    private func loginAction(for type: LoginType) {
-           switch type {
-           case .google:
-               print("Google 로그인 처리")
-           case .kakao:
-               print("Kakao 로그인 처리")
-           case .apple:
-               print("Apple 로그인 처리")
-           case .guest:
-               print("guest 둘러보기")
-           }
-       }
-    
+
+    func bindViewModel() {
+        viewModel.navigationHomePublisher
+            .sink { [weak self] in
+                print("버튼 호출")
+                print("Publisher received")
+                self?.coordinator?.showHome()
+            }
+            .store(in: &cancellables)
+    }
 }
-
-
