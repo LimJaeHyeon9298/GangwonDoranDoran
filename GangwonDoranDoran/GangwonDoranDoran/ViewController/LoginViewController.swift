@@ -122,7 +122,7 @@ class LoginViewController: UIViewController {
         
         button.configuration = config
         button.addAction(UIAction(handler: { [weak self] _ in
-            self?.viewModel.loginAction(for: type)
+            self?.viewModel.loginAction(for: type, presentingViewController: self!)
             print("Button pressed: \(type)")
         }), for: .touchUpInside)
         
