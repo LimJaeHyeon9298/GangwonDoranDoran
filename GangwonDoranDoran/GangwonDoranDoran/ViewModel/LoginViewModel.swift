@@ -12,6 +12,8 @@ import GoogleSignIn
 import Firebase
 import FirebaseAuth
 import CryptoKit
+import KakaoSDKAuth
+import KakaoSDKUser
 
 class LoginViewModel:NSObject {
     
@@ -30,6 +32,7 @@ class LoginViewModel:NSObject {
                loginWithGoogle(presentingViewController: presentingViewController)
            case .kakao:
                print("Kakao 로그인 처리")
+               requestKakaoOauth()
            case .apple:
                print("Apple 로그인 처리")
              loginWithApple()
@@ -102,6 +105,128 @@ class LoginViewModel:NSObject {
         }
     }
 
+    
+    
+    func loginWithKaKao() {
+        if AuthApi.hasToken() {
+            UserApi.shared.accessTokenInfo { accessTokenInfo, error in
+                if let error = error {
+                    print("DEBUG: 카카오톡 토큰 가져오기 에러 \(error.localizedDescription)")
+                    self.requestKakaoOauth()
+                } else {
+                    
+                }
+            }
+        } else {
+            
+            self.requestKakaoOauth()
+        }
+        
+    }
+    
+    func requestKakaoOauth() {
+        
+        if (UserApi.isKakaoTalkLoginAvailable()) {
+            print("카카카카카카카ㅏ카카카카카카카카카카카카카")
+            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+              
+                print("하하하하하하하하하하하하하하하하하하하하하하하")
+                if let error = error {
+                    print(error.localizedDescription)
+                    print("z카카오톡 로그인 실패 ")
+                }
+                else {
+                    print("loginWithKakaoTalk() success.")
+
+                    //do something
+                    if let token = oauthToken {
+                            print("카카오톡 토큰\(token) ")
+                            self.loginInFirebase()
+                    }
+//                    _ = oauthToken
+                }
+            }
+        } else {
+            
+            
+            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                    if let error = error {
+                        print(error)
+                    }
+                    else {
+                        print("loginWithKakaoAccount() success.")
+
+                        //do something
+//                        _ = oauthToken
+                        if let token = oauthToken {
+                                print("카카오톡 토큰\(token) ")
+                                self.loginInFirebase()
+                        }
+                    }
+                }
+            
+            
+        }
+        
+        
+    }
+
+    func loginInFirebase() {
+        UserApi.shared.me { user, error in
+            if let error = error {
+                print("DEBUG: 카카오톡 사용자 정보가져오기 에러 \(error.localizedDescription)")
+            } else {
+                print("DEBUG: 카카오톡 사용자 정보가져오기 success.")
+                
+                Auth.auth().createUser(withEmail: (user?.kakaoAccount?.email)!, password: "\(String(describing: user?.id))") { result, error in
+                    if let error = error {
+                                        print("DEBUG: 파이어베이스 사용자 생성 실패 \(error.localizedDescription)")
+                                        Auth.auth().signIn(withEmail: (user?.kakaoAccount?.email)!,
+                                                           password: "\(String(describing: user?.id))")
+                                       // self.didSendEventClosure?(.close)
+                                    } else {
+                                        print("DEBUG: 파이어베이스 사용자 생성")
+                                        self.navigateToHome()
+                                     //   self.didSendEventClosure?(.showSignUp) // 회원가입 화면으로 이동
+                                      //  self.dismiss(animated: true) // 창닫기
+                                    }
+                }
+            }
+            
+            
+        }
+    }
+    
+//    private func loginInFirebase() {
+//
+//        UserApi.shared.me() { user, error in
+//            if let error = error {
+//                print("DEBUG: 카카오톡 사용자 정보가져오기 에러 \(error.localizedDescription)")
+//            } else {
+//                print("DEBUG: 카카오톡 사용자 정보가져오기 success.\(user)")
+// 
+//                // 파이어베이스 유저 생성 (이메일로 회원가입)
+////                Auth.auth().createUser(withEmail: user?.kakaoAccount?.email,
+////                                       password: "\(String(describing: user?.id))") { result, error in
+////                    if let error = error {
+////                        print("DEBUG: 파이어베이스 사용자 생성 실패 \(error.localizedDescription)")
+////                        Auth.auth().signIn(withEmail: (user?.kakaoAccount?.email)!,
+////                                           password: "\(String(describing: user?.id))")
+////                     //   self.didSendEventClosure?(.close)
+////                    } else {
+////                        print("DEBUG: 파이어베이스 사용자 생성")
+////                    //    self.didSendEventClosure?(.showSignUp) // 회원가입 화면으로 이동
+////                      //  self.dismiss(animated: true) // 창닫기
+////                    }
+////                }
+//            }
+//        }
+//        
+//
+//    }
+    
+    
+    
 }
 
 
@@ -233,3 +358,20 @@ extension LoginViewModel: ASAuthorizationControllerDelegate, ASAuthorizationCont
 
 
 
+//@objc private func kakaoLoginButtonTapped(_ sender: UIButton) {
+//
+//    // 카카오 토큰이 존재한다면
+//    if AuthApi.hasToken() {
+//        UserApi.shared.accessTokenInfo { accessTokenInfo, error in
+//            if let error = error {
+//                print("DEBUG: 카카오톡 토큰 가져오기 에러 \(error.localizedDescription)")
+//                self.kakaoLogin()
+//            } else {
+//                // 토큰 유효성 체크 성공 (필요 시 토큰 갱신됨)
+//            }
+//        }
+//    } else {
+//        // 토큰이 없는 상태 로그인 필요
+//        kakaoLogin()
+//    }
+//}

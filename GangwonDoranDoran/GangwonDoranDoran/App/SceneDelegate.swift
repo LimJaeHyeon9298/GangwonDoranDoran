@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import KakaoSDKAuth
+import GoogleSignIn
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -69,7 +71,46 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+//    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+//            if let url = URLContexts.first?.url {
+//                if (AuthApi.isKakaoTalkLoginUrl(url)) {
+//                    _ = AuthController.handleOpenUrl(url: url)
+//                }
+//            }
+//        }
 
+//    func application(_ app: UIApplication,
+//                     open url: URL,
+//                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+//        
+//        if AuthApi.isKakaoTalkLoginUrl(url) {
+//            print("kakao 로그인이지롱 ")
+//            return AuthController.handleOpenUrl(url: url)
+//        }
+//        
+//        return GIDSignIn.sharedInstance.handle(url)
+//        
+//        
+//        
+//        
+//    }
 
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            let _ = GIDSignIn.sharedInstance.handle(url)
+            
+        }
+                
+            
+        
+        
+        if let url = URLContexts.first?.url {
+                if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                    _ = AuthController.handleOpenUrl(url: url)
+                }
+            }
+        }
+    
+    
 }
 
