@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1BE1CE2467A7EE5CD718BA8D /* Pods_GangwonDoranDoranTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E09FAFA35F9799350EF6254B /* Pods_GangwonDoranDoranTests.framework */; };
+		464787F82C3F726E00E1558C /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464787F72C3F726E00E1558C /* CustomTabView.swift */; };
 		469D90A32C131489000ABE8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D90A22C131489000ABE8C /* AppDelegate.swift */; };
 		469D90A52C131489000ABE8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D90A42C131489000ABE8C /* SceneDelegate.swift */; };
 		469D90AC2C13148B000ABE8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 469D90AB2C13148B000ABE8C /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		128CF1CE05DB583F839D7961 /* Pods-GangwonDoranDoran.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GangwonDoranDoran.release.xcconfig"; path = "Target Support Files/Pods-GangwonDoranDoran/Pods-GangwonDoranDoran.release.xcconfig"; sourceTree = "<group>"; };
 		2F5CF88DD719B85160105771 /* Pods-GangwonDoranDoranTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GangwonDoranDoranTests.release.xcconfig"; path = "Target Support Files/Pods-GangwonDoranDoranTests/Pods-GangwonDoranDoranTests.release.xcconfig"; sourceTree = "<group>"; };
 		346B8002BAFDEC73BA91AA30 /* Pods-GangwonDoranDoran.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GangwonDoranDoran.debug.xcconfig"; path = "Target Support Files/Pods-GangwonDoranDoran/Pods-GangwonDoranDoran.debug.xcconfig"; sourceTree = "<group>"; };
+		464787F72C3F726E00E1558C /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomTabView.swift; path = ../../../../Umbrella/Umbrella/Umbrella/Controllers/CustomTabView.swift; sourceTree = "<group>"; };
 		469D909F2C131489000ABE8C /* GangwonDoranDoran.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GangwonDoranDoran.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		469D90A22C131489000ABE8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		469D90A42C131489000ABE8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				469D90E02C131633000ABE8C /* HomeView.swift */,
+				464787F72C3F726E00E1558C /* CustomTabView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				469D91012C13257B000ABE8C /* SecondViewController.swift in Sources */,
 				469D90FB2C132165000ABE8C /* LoginViewController.swift in Sources */,
 				469D90A32C131489000ABE8C /* AppDelegate.swift in Sources */,
+				464787F82C3F726E00E1558C /* CustomTabView.swift in Sources */,
 				469D90FD2C1321AD000ABE8C /* MainTabController.swift in Sources */,
 				46F1099F2C2AD41B006AD5F6 /* AppCoordinator.swift in Sources */,
 				469D90E12C131633000ABE8C /* HomeView.swift in Sources */,
