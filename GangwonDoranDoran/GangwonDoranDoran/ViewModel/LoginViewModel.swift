@@ -18,7 +18,7 @@ import KakaoSDKUser
 class LoginViewModel:NSObject {
     
     private var navigateToHomeSubject = PassthroughSubject<Void,Never>()
-    var navigationHomePublisher:AnyPublisher<Void,Never> {
+    var navigationMainPublisher:AnyPublisher<Void,Never> {
         navigateToHomeSubject
             .eraseToAnyPublisher()
     }

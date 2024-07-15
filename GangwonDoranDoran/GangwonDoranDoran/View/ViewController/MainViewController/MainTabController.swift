@@ -6,62 +6,48 @@
 //
 
 import UIKit
+import Combine
 
 
 class MainTabController: UITabBarController {
+    weak var coordinator: Coordinator?
+    private var cancellables = Set<AnyCancellable>()
+    let customTabBar = CustomTabView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViewControllers()
-        tabBar.backgroundColor = .white
-        
-        
-    }
-    
-    
-    
-    func templateNavigationController(image:UIImage?,rootViewController: UIViewController) -> UINavigationController {
-        
-        let nav = UINavigationController(rootViewController: rootViewController)
-        nav.tabBarItem.image = image
-        nav.navigationBar.barTintColor = .white
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .white
-        nav.navigationBar.standardAppearance = appearance
-        nav.navigationBar.scrollEdgeAppearance = nav.navigationBar.standardAppearance
+        view.backgroundColor = .white
        
-        return nav
+        setupTabBar()
+        bindTabBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            // 네비게이션 바 숨기기
+            self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        }
+    
+    func setupTabBar() {
+        customTabBar.frame = CGRect(x: 0, y: self.view.frame.height - 80, width: self.view.frame.width, height: 200)
+        customTabBar.backgroundColor = .clear
+        
+        self.view.addSubview(customTabBar)
+
     }
     
     
-    func configureViewControllers() {
-        
-        let firstVC = FirstViewController()
-        let secondVC = SecondViewController()
-        let homeVC = HomeViewController()
-        let thirdVC = ThirdViewController()
-        let fourthVC = SettingViewController()
-        
-        let nav1 = templateNavigationController(image: UIImage(systemName: "person.fill"), rootViewController: firstVC)
-        let nav2 = templateNavigationController(image:  UIImage(systemName: "pencil"), rootViewController: secondVC)
-        let nav3 = templateNavigationController(image: UIImage(systemName: "person.fill"), rootViewController: homeVC)
-        let nav4 = templateNavigationController(image:  UIImage(systemName: "pencil"), rootViewController: thirdVC)
-        let nav5 = templateNavigationController(image: UIImage(systemName: "person.fill"), rootViewController: fourthVC)
-        
- 
-        nav1.tabBarItem.title = "프로필"
-        nav2.tabBarItem.title = "연필"
-        nav3.tabBarItem.title = "home"
-        nav4.tabBarItem.title = "연필"
-        nav5.tabBarItem.title = "프로필"
-
-
-        viewControllers = [nav1, nav2,nav3,nav4,nav5]
-        
+     func bindTabBar() {
+        customTabBar.buttonTappedPublisher
+                    .sink { [weak self] index in
+                        self?.didSelectTab(at: index)
+                    }
+                    .store(in: &cancellables)
     }
-    
-    
-    
+   
+    private func didSelectTab(at index: Int) {
+           print("Tab \(index) selected")
+           self.selectedIndex = index  // 선택된 탭 변경
+       }
+
 }

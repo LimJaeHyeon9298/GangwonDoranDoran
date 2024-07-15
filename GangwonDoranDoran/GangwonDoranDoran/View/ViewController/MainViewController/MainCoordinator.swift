@@ -9,16 +9,18 @@ import Foundation
 import UIKit
 
 class MainCoordinator: Coordinator {
-    func showHome() {
-        
-    }
-    
+  
     var navigationController: UINavigationController?
     var children = [Coordinator]()
-    var tabBarController: UITabBarController?
+    var tabBarController: MainTabController?
 
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
     func start() {
-        tabBarController = UITabBarController()
+        tabBarController = MainTabController()
+        tabBarController?.coordinator = self
 
         // Home 탭 코디네이터 생성 및 추가
         let homeCoordinator = HomeCoordinator(navigationController: UINavigationController())
@@ -29,15 +31,26 @@ class MainCoordinator: Coordinator {
         let settingsCoordinator = SettingCoordinator(navigationController: UINavigationController())
         addChild(coordinator: settingsCoordinator)
         settingsCoordinator.start()
-
-        // 탭 바에 각 코디네이터의 네비게이션 컨트롤러 설정
-       
         
+        let firstCoordinator = FirstCoordinator(navigationController: UINavigationController())
+        addChild(coordinator: firstCoordinator)
+        firstCoordinator.start()
+        
+        let secondCoordinator = SecondCoordinator(navigationController: UINavigationController())
+        addChild(coordinator: secondCoordinator)
+        secondCoordinator.start()
+        
+        let thirdCoordinator = ThirdCoordinator(navigationController: UINavigationController())
+        addChild(coordinator: thirdCoordinator)
+        thirdCoordinator.start()
+  
         tabBarController?.viewControllers = [
+            firstCoordinator.navigationController!, // black green gray bri
+            secondCoordinator.navigationController!,
             homeCoordinator.navigationController!,
+            thirdCoordinator.navigationController!,
             settingsCoordinator.navigationController!
         ]
-
         // 메인 네비게이션 컨트롤러에 탭 바 컨트롤러 푸시
         navigationController?.pushViewController(tabBarController!, animated: false)
     }

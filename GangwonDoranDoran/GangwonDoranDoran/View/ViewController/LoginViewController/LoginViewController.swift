@@ -130,11 +130,11 @@ class LoginViewController: UIViewController {
     }
 
     func bindViewModel() {
-        viewModel.navigationHomePublisher
+        viewModel.navigationMainPublisher
             .sink { [weak self] in
                 print("버튼 호출")
                 print("Publisher received")
-                self?.coordinator?.showHome()
+                self?.coordinator?.showMain()
             }
             .store(in: &cancellables)
     }

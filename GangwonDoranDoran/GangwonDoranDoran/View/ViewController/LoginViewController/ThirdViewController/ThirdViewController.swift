@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import Combine
 
 class ThirdViewController:UIViewController {
+    weak var coordinator: Coordinator?
+    var cancellables = Set<AnyCancellable>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray

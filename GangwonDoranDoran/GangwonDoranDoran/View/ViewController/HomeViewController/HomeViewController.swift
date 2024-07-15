@@ -12,23 +12,12 @@ import SnapKit
 
 
 class HomeViewController:UIViewController {
-    
-    //    let customView = CustomTabView().then {
-    //        $0.backgroundColor = .blue
-    //
-    //    }
-    
-    
+
     weak var coordinator: Coordinator?
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        let customTabBar = CustomTabView()
-        customTabBar.frame = CGRect(x: 0, y: self.view.frame.height - 80, width: self.view.frame.width, height: 200)
-        customTabBar.backgroundColor = .clear
-        
-        self.view.addSubview(customTabBar)
-        
+        view.backgroundColor = .red
+
     }
     
 }

@@ -15,7 +15,7 @@ protocol Coordinator:AnyObject {
     func start()
     func addChild(coordinator: Coordinator)
     func removeChild(coordinator: Coordinator)
-    func showHome()
+    func showMain()
 }
 
 
@@ -28,14 +28,14 @@ extension Coordinator {
         children = children.filter { $0 !== coordinator }
     }
     
-    func showHome() {}
+    func showMain() {}
     
     
 }
 
 class AppCoordinator:Coordinator {
     var children = [Coordinator]()
-    private var isShowingHome = false
+    private var isShowingMain = false
     
     var navigationController: UINavigationController?
     private var cancellables = Set<AnyCancellable>()
@@ -49,6 +49,7 @@ class AppCoordinator:Coordinator {
 //                   let mainCoordinator = MainCoordinator(navigationController: navigationController!)
 //                   addChild(coordinator: mainCoordinator)
 //                   mainCoordinator.start()
+            showMain()
                } else {
 //                   let loginCoordinator = LoginCoordinator(navigationController: navigationController!)
 //                   addChild(coordinator: loginCoordinator)
@@ -68,24 +69,33 @@ class AppCoordinator:Coordinator {
                 .sink { [weak self] in
                     print("AppCoordinator: Login success received")
                     self?.removeChild(coordinator: loginCoordinator)
-                    self?.showHome()
+                    self?.showMain()
                 }
                 .store(in: &cancellables)
         }
 
-    func showHome() {
+    func showMain() {
         
-        guard !isShowingHome else { return }
-                isShowingHome = true // 플래그 설정
+        guard !isShowingMain else { return }
+                isShowingMain = true // 플래그 설정
                 print("AppCoordinator: showHome called")
           print("AppCoordinator: showHome called")
           guard let navigationController = navigationController else {
               print("AppCoordinator: navigationController is nil")
               return
           }
-          let homeCoordinator = HomeCoordinator(navigationController: navigationController)
-          addChild(coordinator: homeCoordinator)
-          homeCoordinator.start()
+//          let homeCoordinator = HomeCoordinator(navigationController: navigationController)
+//          addChild(coordinator: homeCoordinator)
+//          homeCoordinator.start()
+        
+        
+        let mainCoordinator = MainCoordinator(navigationController: navigationController)
+        addChild(coordinator: mainCoordinator)
+        mainCoordinator.start()
+        
+        
+        
+        
           print("AppCoordinator: HomeCoordinator added, children count: \(children.count)")
       }
     

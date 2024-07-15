@@ -8,13 +8,6 @@
 import UIKit
 
 class HomeCoordinator:Coordinator {
-  
-    
-    func showHome() {
-        print("showHome called in HomeCoordinator")
-    }
-    
-   
     var navigationController: UINavigationController?
     
     var children = [Coordinator]()
@@ -27,12 +20,9 @@ class HomeCoordinator:Coordinator {
     
     
     func start() {
-        print("HomeViewController pushed")
-        let homeViewController = HomeViewController()
-                homeViewController.coordinator = self
-                navigationController?.pushViewController(homeViewController, animated: true)
         print("HomeViewController pushed to navigationController")
+        let homeViewController = HomeViewController()
+        homeViewController.coordinator = self
+        navigationController?.viewControllers = [homeViewController]
     }
-    
-    
 }

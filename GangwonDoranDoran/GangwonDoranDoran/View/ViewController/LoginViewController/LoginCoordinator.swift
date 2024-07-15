@@ -26,16 +26,16 @@ class LoginCoordinator: Coordinator {
         loginViewController.coordinator = self
         navigationController?.setViewControllers([loginViewController], animated: true)
 
-        loginViewModel.navigationHomePublisher
+        loginViewModel.navigationMainPublisher
             .sink { [weak self] in
                 print("LoginCoordinator: Login success received")
                 self?.loginSuccessPublisher.send(())
-                self?.parentCoordinator?.showHome()
+                self?.parentCoordinator?.showMain()
             }
             .store(in: &cancellables)
     }
 
-    func showHome() {
-        parentCoordinator?.showHome()
+    func showMain() {
+        parentCoordinator?.showMain()
     }
 }
