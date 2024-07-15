@@ -21,7 +21,7 @@ enum LoginType {
 class LoginViewController: UIViewController {
    
     var viewModel: LoginViewModel
-    weak var coordinator: AppCoordinator?
+    weak var coordinator: Coordinator?
     var cancellables = Set<AnyCancellable>()
     
     var logoView = UIImageView().then {

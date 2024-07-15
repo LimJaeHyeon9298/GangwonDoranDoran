@@ -42,7 +42,7 @@ class MainTabController: UITabBarController {
         let secondVC = SecondViewController()
         let homeVC = HomeViewController()
         let thirdVC = ThirdViewController()
-        let fourthVC = FourthViewController()
+        let fourthVC = SettingViewController()
         
         let nav1 = templateNavigationController(image: UIImage(systemName: "person.fill"), rootViewController: firstVC)
         let nav2 = templateNavigationController(image:  UIImage(systemName: "pencil"), rootViewController: secondVC)

@@ -9,12 +9,34 @@ import UIKit
 import Combine
 
 
-protocol Coordinator {
+protocol Coordinator:AnyObject {
     var navigationController: UINavigationController? {get set}
+    var children: [Coordinator] { get set }
     func start()
+    func addChild(coordinator: Coordinator)
+    func removeChild(coordinator: Coordinator)
+    func showHome()
+}
+
+
+extension Coordinator {
+    func addChild(coordinator: Coordinator) {
+        children.append(coordinator)
+    }
+    
+    func removeChild(coordinator: Coordinator) {
+        children = children.filter { $0 !== coordinator }
+    }
+    
+    func showHome() {}
+    
+    
 }
 
 class AppCoordinator:Coordinator {
+    var children = [Coordinator]()
+    private var isShowingHome = false
+    
     var navigationController: UINavigationController?
     private var cancellables = Set<AnyCancellable>()
     
@@ -23,35 +45,65 @@ class AppCoordinator:Coordinator {
     }
     
     func start() {
-        showLogin()
+        if isUserLoggedIn() {
+//                   let mainCoordinator = MainCoordinator(navigationController: navigationController!)
+//                   addChild(coordinator: mainCoordinator)
+//                   mainCoordinator.start()
+               } else {
+//                   let loginCoordinator = LoginCoordinator(navigationController: navigationController!)
+//                   addChild(coordinator: loginCoordinator)
+//                   loginCoordinator.start()
+                   showLogin()
+               }
     }
-
+    
     func showLogin() {
-        let loginViewModel = LoginViewModel()
-        let loginViewController = LoginViewController(viewModel: loginViewModel)
-        loginViewController.coordinator = self
-        navigationController?.setViewControllers([loginViewController], animated: true)
-        
-        loginViewModel.navigationHomePublisher
-            .sink { [weak self] in
-                self?.showHome()
-            }
-            .store(in: &cancellables)
-    }
-    
-    
-    
-    func showHome() {
-        guard let navigationController = navigationController else { return }
-        if navigationController.viewControllers.contains(where: { $0 is HomeViewController }) {
-            print("HomeViewController already in stack")
-            return
+            print("AppCoordinator: showLogin called")
+            let loginCoordinator = LoginCoordinator(navigationController: navigationController!)
+            loginCoordinator.parentCoordinator = self
+            addChild(coordinator: loginCoordinator)
+            loginCoordinator.start()
+
+            loginCoordinator.loginSuccessPublisher
+                .sink { [weak self] in
+                    print("AppCoordinator: Login success received")
+                    self?.removeChild(coordinator: loginCoordinator)
+                    self?.showHome()
+                }
+                .store(in: &cancellables)
         }
-        print("Pushing HomeViewController")
-        let homeViewController = HomeViewController()
-        navigationController.pushViewController(homeViewController, animated: true)
+
+    func showHome() {
         
-        // 구독 해제
-        cancellables.removeAll()
+        guard !isShowingHome else { return }
+                isShowingHome = true // 플래그 설정
+                print("AppCoordinator: showHome called")
+          print("AppCoordinator: showHome called")
+          guard let navigationController = navigationController else {
+              print("AppCoordinator: navigationController is nil")
+              return
+          }
+          let homeCoordinator = HomeCoordinator(navigationController: navigationController)
+          addChild(coordinator: homeCoordinator)
+          homeCoordinator.start()
+          print("AppCoordinator: HomeCoordinator added, children count: \(children.count)")
+      }
+    
+    func addChild(coordinator:Coordinator) {
+        children.append(coordinator)
+        print("Child Coordinator added, children count: \(children.count)")
     }
+    
+    func removeChild(coordinator:Coordinator) {
+        children = children.filter { $0 !== coordinator }
+       print("Child Coordinator removed, children count: \(children.count)")
+    }
+    
+    
+    private func isUserLoggedIn() -> Bool {
+            // 토큰 유효성 검사 로직
+            return false
+        }
+    
+    
 }

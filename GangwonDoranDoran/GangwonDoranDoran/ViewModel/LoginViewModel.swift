@@ -32,10 +32,10 @@ class LoginViewModel:NSObject {
             loginWithGoogle(presentingViewController: presentingViewController)
         case .kakao:
             print("Kakao 로그인 처리")
-            requestKakaoOauth()
+            requestKakaoOauth(presentingViewController: presentingViewController)
         case .apple:
             print("Apple 로그인 처리")
-            loginWithApple()
+            loginWithApple(presentingViewController: presentingViewController)
             
             
         case .guest:
@@ -49,7 +49,7 @@ class LoginViewModel:NSObject {
         navigateToHomeSubject.send()
     }
     
-    func loginWithApple() {
+    func loginWithApple(presentingViewController: UIViewController) {
         let nonce = randomNonceString()
         currentNonce = nonce // 여기서 currentNonce를 설정합니다.
         
@@ -107,33 +107,31 @@ class LoginViewModel:NSObject {
     
     
     
-    func loginWithKaKao() {
+    func loginWithKaKao(presentingViewController:UIViewController) {
         if AuthApi.hasToken() {
             UserApi.shared.accessTokenInfo { accessTokenInfo, error in
                 if let error = error {
                     print("DEBUG: 카카오톡 토큰 가져오기 에러 \(error.localizedDescription)")
-                    self.requestKakaoOauth()
+                    self.requestKakaoOauth(presentingViewController: presentingViewController)
                 } else {
                     
                 }
             }
         } else {
             
-            self.requestKakaoOauth()
+            self.requestKakaoOauth(presentingViewController: presentingViewController)
         }
         
     }
     
-    func requestKakaoOauth() {
+    func requestKakaoOauth(presentingViewController:UIViewController) {
         
         if (UserApi.isKakaoTalkLoginAvailable()) {
-            print("카카카카카카카ㅏ카카카카카카카카카카카카카")
             UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
                 
-                print("하하하하하하하하하하하하하하하하하하하하하하하")
                 if let error = error {
                     print(error.localizedDescription)
-                    print("z카카오톡 로그인 실패 ")
+                    print("카카오톡 로그인 실패 ")
                 }
                 else {
                     print("loginWithKakaoTalk() success.")
@@ -143,7 +141,6 @@ class LoginViewModel:NSObject {
                         print("카카오톡 토큰\(token) ")
                         self.loginInFirebase()
                     }
-                    //                    _ = oauthToken
                 }
             }
         } else {
@@ -155,9 +152,6 @@ class LoginViewModel:NSObject {
                 }
                 else {
                     print("loginWithKakaoAccount() success.")
-                    
-                    //do something
-                    //                        _ = oauthToken
                     if let token = oauthToken {
                         print("카카오톡 토큰\(token) ")
                         self.loginInFirebase()
@@ -174,7 +168,7 @@ class LoginViewModel:NSObject {
     func loginInFirebase() {
         UserApi.shared.me { user, error in
             if let error = error {
-                print("DEBUG: 카카오톡 사용자 정보가져오기 에러 \(error.localizedDescription)")
+                print("DpresentingViewControllerEBUG: 카카오톡 사용자 정보가져오기 에러 \(error.localizedDescription)")
             } else {
                 print("DEBUG: 카카오톡 사용자 정보가져오기 success.")
                 
@@ -212,7 +206,8 @@ extension LoginViewModel: ASAuthorizationControllerDelegate, ASAuthorizationCont
     
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         // todo - 윈도우 설정
-        return UIWindow()
+        return UIApplication.shared.windows.first { $0.isKeyWindow } ?? UIWindow()
+        //return UIWindow()
     }
     
     private func randomNonceString(length: Int = 32) -> String {
