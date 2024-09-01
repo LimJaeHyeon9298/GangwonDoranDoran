@@ -15,7 +15,20 @@
 		4609729C2C42C22000877020 /* ThirdCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4609729B2C42C22000877020 /* ThirdCoordinator.swift */; };
 		4609729E2C42C27800877020 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4609729D2C42C27800877020 /* MainCoordinator.swift */; };
 		461D44E72C43F927003F42BE /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461D44E62C43F927003F42BE /* LoginCoordinator.swift */; };
+		462010082C848402008B861D /* PagingTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462010072C848402008B861D /* PagingTabBar.swift */; };
+		4620100A2C84841C008B861D /* PagingTabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462010092C84841C008B861D /* PagingTabBarCell.swift */; };
+		4620100C2C84842E008B861D /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4620100B2C84842E008B861D /* PagingView.swift */; };
+		4620100E2C84843E008B861D /* PagingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4620100D2C84843E008B861D /* PagingCollectionViewCell.swift */; };
 		464787F82C3F726E00E1558C /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464787F72C3F726E00E1558C /* CustomTabView.swift */; };
+		46569F702C5AFBE500B94B22 /* FireStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46569F6F2C5AFBE500B94B22 /* FireStoreManager.swift */; };
+		46569F922C5B02CC00B94B22 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 46569F912C5B02CC00B94B22 /* FirebaseFirestore */; };
+		46569F942C5B02CC00B94B22 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 46569F932C5B02CC00B94B22 /* FirebaseFirestoreSwift */; };
+		46569F962C5B02CC00B94B22 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 46569F952C5B02CC00B94B22 /* FirebaseStorage */; };
+		4674B29D2C63965D00BCD451 /* Pods_GangwonDoranDoran.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07CD04092435197487D74ECC /* Pods_GangwonDoranDoran.framework */; };
+		4674B29E2C63965D00BCD451 /* Pods_GangwonDoranDoran.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07CD04092435197487D74ECC /* Pods_GangwonDoranDoran.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		467AB0312C5F56B20054E36D /* CommunityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467AB0302C5F56B20054E36D /* CommunityService.swift */; };
+		469B444D2C638EAC00B1C49B /* TermsAgreementViewCiontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469B444C2C638EAC00B1C49B /* TermsAgreementViewCiontroller.swift */; };
+		469B44512C6390C000B1C49B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469B44502C6390C000B1C49B /* MainViewController.swift */; };
 		469D90A32C131489000ABE8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D90A22C131489000ABE8C /* AppDelegate.swift */; };
 		469D90A52C131489000ABE8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D90A42C131489000ABE8C /* SceneDelegate.swift */; };
 		469D90AC2C13148B000ABE8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 469D90AB2C13148B000ABE8C /* Assets.xcassets */; };
@@ -44,12 +57,12 @@
 		469D91012C13257B000ABE8C /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D91002C13257B000ABE8C /* SecondViewController.swift */; };
 		469D91032C1327E4000ABE8C /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D91022C1327E4000ABE8C /* ThirdViewController.swift */; };
 		469D91052C1327EF000ABE8C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D91042C1327EF000ABE8C /* SettingViewController.swift */; };
+		46A7DB6D2C5C63500006DD90 /* TermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A7DB6C2C5C63500006DD90 /* TermViewController.swift */; };
 		46CA36CE2C3AD6070081A490 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 46CA36CD2C3AD6070081A490 /* FirebaseAuth */; };
 		46CA36D02C3B773A0081A490 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46CA36CF2C3B77390081A490 /* GoogleService-Info.plist */; };
 		46F1099D2C2ACE8D006AD5F6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F1099C2C2ACE8D006AD5F6 /* LoginViewModel.swift */; };
 		46F1099F2C2AD41B006AD5F6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F1099E2C2AD41B006AD5F6 /* AppCoordinator.swift */; };
 		B43E9A2920570C047200D4DC /* Pods_GangwonDoranDoran_GangwonDoranDoranUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 720DF4D2F91C436B0FD62842 /* Pods_GangwonDoranDoran_GangwonDoranDoranUITests.framework */; };
-		BCF53C686BC7768DD9029F94 /* Pods_GangwonDoranDoran.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07CD04092435197487D74ECC /* Pods_GangwonDoranDoran.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +82,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4674B29F2C63965D00BCD451 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4674B29E2C63965D00BCD451 /* Pods_GangwonDoranDoran.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		07CD04092435197487D74ECC /* Pods_GangwonDoranDoran.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GangwonDoranDoran.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AB48C8AD678EDCD23DA14BB /* Pods-GangwonDoranDoranTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GangwonDoranDoranTests.debug.xcconfig"; path = "Target Support Files/Pods-GangwonDoranDoranTests/Pods-GangwonDoranDoranTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,7 +109,15 @@
 		4609729B2C42C22000877020 /* ThirdCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdCoordinator.swift; sourceTree = "<group>"; };
 		4609729D2C42C27800877020 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		461D44E62C43F927003F42BE /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		462010072C848402008B861D /* PagingTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingTabBar.swift; sourceTree = "<group>"; };
+		462010092C84841C008B861D /* PagingTabBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingTabBarCell.swift; sourceTree = "<group>"; };
+		4620100B2C84842E008B861D /* PagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingView.swift; sourceTree = "<group>"; };
+		4620100D2C84843E008B861D /* PagingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewCell.swift; sourceTree = "<group>"; };
 		464787F72C3F726E00E1558C /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomTabView.swift; path = ../../../../Umbrella/Umbrella/Umbrella/Controllers/CustomTabView.swift; sourceTree = "<group>"; };
+		46569F6F2C5AFBE500B94B22 /* FireStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreManager.swift; sourceTree = "<group>"; };
+		467AB0302C5F56B20054E36D /* CommunityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityService.swift; sourceTree = "<group>"; };
+		469B444C2C638EAC00B1C49B /* TermsAgreementViewCiontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAgreementViewCiontroller.swift; sourceTree = "<group>"; };
+		469B44502C6390C000B1C49B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		469D909F2C131489000ABE8C /* GangwonDoranDoran.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GangwonDoranDoran.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		469D90A22C131489000ABE8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		469D90A42C131489000ABE8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +142,8 @@
 		469D91022C1327E4000ABE8C /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		469D91042C1327EF000ABE8C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		469D91062C140EB9000ABE8C /* GangwonDoranDoran.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GangwonDoranDoran.entitlements; sourceTree = "<group>"; };
+		46A7DB6C2C5C63500006DD90 /* TermViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermViewController.swift; sourceTree = "<group>"; };
+		46A7DB6E2C5C6BBF0006DD90 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		46CA36CF2C3B77390081A490 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		46F1099C2C2ACE8D006AD5F6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		46F1099E2C2AD41B006AD5F6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -126,12 +163,15 @@
 				469D90F92C1317B1000ABE8C /* Then in Frameworks */,
 				469D90F62C13179B000ABE8C /* SnapKit in Frameworks */,
 				469D90E82C131715000ABE8C /* RxCocoa in Frameworks */,
+				46569F922C5B02CC00B94B22 /* FirebaseFirestore in Frameworks */,
+				4674B29D2C63965D00BCD451 /* Pods_GangwonDoranDoran.framework in Frameworks */,
 				469D90ED2C13176D000ABE8C /* CombineMoya in Frameworks */,
+				46569F942C5B02CC00B94B22 /* FirebaseFirestoreSwift in Frameworks */,
 				469D90EF2C13176D000ABE8C /* Moya in Frameworks */,
 				469D90F32C13176D000ABE8C /* RxMoya in Frameworks */,
 				469D90E62C131715000ABE8C /* RxBlocking in Frameworks */,
+				46569F962C5B02CC00B94B22 /* FirebaseStorage in Frameworks */,
 				469D90F12C13176D000ABE8C /* ReactiveMoya in Frameworks */,
-				BCF53C686BC7768DD9029F94 /* Pods_GangwonDoranDoran.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +254,7 @@
 				469D90FA2C132165000ABE8C /* LoginViewController.swift */,
 				461D44E62C43F927003F42BE /* LoginCoordinator.swift */,
 				460972942C42C18900877020 /* ThirdViewController */,
+				469B44502C6390C000B1C49B /* MainViewController.swift */,
 			);
 			path = LoginViewController;
 			sourceTree = "<group>";
@@ -284,6 +325,10 @@
 			children = (
 				469D90E02C131633000ABE8C /* HomeView.swift */,
 				464787F72C3F726E00E1558C /* CustomTabView.swift */,
+				462010072C848402008B861D /* PagingTabBar.swift */,
+				462010092C84841C008B861D /* PagingTabBarCell.swift */,
+				4620100B2C84842E008B861D /* PagingView.swift */,
+				4620100D2C84843E008B861D /* PagingCollectionViewCell.swift */,
 				469D90D72C1315B4000ABE8C /* ViewController */,
 			);
 			path = View;
@@ -307,6 +352,8 @@
 				4609728F2C42C03800877020 /* SettingViewController */,
 				4609728E2C42C02E00877020 /* HomeViewController */,
 				4609728D2C42C01A00877020 /* MainViewController */,
+				46A7DB6C2C5C63500006DD90 /* TermViewController.swift */,
+				469B444C2C638EAC00B1C49B /* TermsAgreementViewCiontroller.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -314,12 +361,15 @@
 		469D90D82C1315C7000ABE8C /* App */ = {
 			isa = PBXGroup;
 			children = (
+				46569F6F2C5AFBE500B94B22 /* FireStoreManager.swift */,
+				46A7DB6E2C5C6BBF0006DD90 /* AuthService.swift */,
 				46CA36CF2C3B77390081A490 /* GoogleService-Info.plist */,
 				469D90AD2C13148B000ABE8C /* LaunchScreen.storyboard */,
 				469D90AB2C13148B000ABE8C /* Assets.xcassets */,
 				469D90A42C131489000ABE8C /* SceneDelegate.swift */,
 				469D90A22C131489000ABE8C /* AppDelegate.swift */,
 				46F1099E2C2AD41B006AD5F6 /* AppCoordinator.swift */,
+				467AB0302C5F56B20054E36D /* CommunityService.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -368,6 +418,7 @@
 				469D909C2C131489000ABE8C /* Frameworks */,
 				469D909D2C131489000ABE8C /* Resources */,
 				973DAE5B4EEEA50174553EC5 /* [CP] Embed Pods Frameworks */,
+				4674B29F2C63965D00BCD451 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -385,6 +436,9 @@
 				469D90F52C13179B000ABE8C /* SnapKit */,
 				469D90F82C1317B1000ABE8C /* Then */,
 				46CA36CD2C3AD6070081A490 /* FirebaseAuth */,
+				46569F912C5B02CC00B94B22 /* FirebaseFirestore */,
+				46569F932C5B02CC00B94B22 /* FirebaseFirestoreSwift */,
+				46569F952C5B02CC00B94B22 /* FirebaseStorage */,
 			);
 			productName = GangwonDoranDoran;
 			productReference = 469D909F2C131489000ABE8C /* GangwonDoranDoran.app */;
@@ -617,27 +671,36 @@
 				469D91012C13257B000ABE8C /* SecondViewController.swift in Sources */,
 				469D90FB2C132165000ABE8C /* LoginViewController.swift in Sources */,
 				4609729C2C42C22000877020 /* ThirdCoordinator.swift in Sources */,
+				469B444D2C638EAC00B1C49B /* TermsAgreementViewCiontroller.swift in Sources */,
 				469D90A32C131489000ABE8C /* AppDelegate.swift in Sources */,
 				464787F82C3F726E00E1558C /* CustomTabView.swift in Sources */,
 				469D90FD2C1321AD000ABE8C /* MainTabController.swift in Sources */,
 				461D44E72C43F927003F42BE /* LoginCoordinator.swift in Sources */,
 				460972982C42C1BB00877020 /* FirstCoordinator.swift in Sources */,
+				46569F702C5AFBE500B94B22 /* FireStoreManager.swift in Sources */,
 				46F1099F2C2AD41B006AD5F6 /* AppCoordinator.swift in Sources */,
 				4609729E2C42C27800877020 /* MainCoordinator.swift in Sources */,
 				469D90E12C131633000ABE8C /* HomeView.swift in Sources */,
+				4620100A2C84841C008B861D /* PagingTabBarCell.swift in Sources */,
+				46A7DB6D2C5C63500006DD90 /* TermViewController.swift in Sources */,
 				460972912C42C10800877020 /* SettingCoordinator.swift in Sources */,
 				469D90DF2C13162C000ABE8C /* HomeViewModel.swift in Sources */,
+				4620100E2C84843E008B861D /* PagingCollectionViewCell.swift in Sources */,
 				469D90DD2C131608000ABE8C /* Fonts+.swift in Sources */,
 				469D90E32C13163A000ABE8C /* HomeModel.swift in Sources */,
 				46F1099D2C2ACE8D006AD5F6 /* LoginViewModel.swift in Sources */,
 				469D90DB2C1315FF000ABE8C /* Colors+.swift in Sources */,
 				469D90A52C131489000ABE8C /* SceneDelegate.swift in Sources */,
 				469D91052C1327EF000ABE8C /* SettingViewController.swift in Sources */,
+				469B44512C6390C000B1C49B /* MainViewController.swift in Sources */,
 				4609729A2C42C1FF00877020 /* SecondCoordinator.swift in Sources */,
+				467AB0312C5F56B20054E36D /* CommunityService.swift in Sources */,
 				469D90D32C13158C000ABE8C /* HomeViewController.swift in Sources */,
 				469D90FF2C1323E2000ABE8C /* FirstViewController.swift in Sources */,
+				4620100C2C84842E008B861D /* PagingView.swift in Sources */,
 				469D91032C1327E4000ABE8C /* ThirdViewController.swift in Sources */,
 				460972932C42C12D00877020 /* HomeCoordinator.swift in Sources */,
+				462010082C848402008B861D /* PagingTabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1022,13 +1085,28 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.28.1;
+				kind = exactVersion;
+				version = 10.28.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		46569F912C5B02CC00B94B22 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46CA36CC2C3AD6070081A490 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		46569F932C5B02CC00B94B22 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46CA36CC2C3AD6070081A490 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		46569F952C5B02CC00B94B22 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46CA36CC2C3AD6070081A490 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		469D90E52C131715000ABE8C /* RxBlocking */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 469D90E42C131715000ABE8C /* XCRemoteSwiftPackageReference "RxSwift" */;

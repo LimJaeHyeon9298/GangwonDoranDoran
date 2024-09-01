@@ -10,6 +10,7 @@ import FirebaseCore
 import GoogleSignIn
 import KakaoSDKAuth
 import KakaoSDKCommon
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         KakaoSDK.initSDK(appKey: "f7b99bb09177297e6337ce4c9f21a646")
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
+                 
+             }
+             
+             application.registerForRemoteNotifications()
         return true
     }
 
