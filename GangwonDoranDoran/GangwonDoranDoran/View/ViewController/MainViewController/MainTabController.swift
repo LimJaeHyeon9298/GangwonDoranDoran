@@ -20,6 +20,8 @@ class MainTabController: UITabBarController {
        
         setupTabBar()
         bindTabBar()
+        NotificationCenter.default.addObserver(self, selector: #selector(hideTabBar), name: NSNotification.Name("HideTabBar"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showTabBar), name: NSNotification.Name("ShowTabBar"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,5 +51,18 @@ class MainTabController: UITabBarController {
            print("Tab \(index) selected")
            self.selectedIndex = index  // 선택된 탭 변경
        }
+    
+    
+    @objc private func hideTabBar() {
+          UIView.animate(withDuration: 0.3) {
+              self.customTabBar.alpha = 0 // 탭 바 숨기기
+          }
+      }
+
+      @objc private func showTabBar() {
+          UIView.animate(withDuration: 0.3) {
+              self.customTabBar.alpha = 1 // 탭 바 보이기
+          }
+      }
 
 }
