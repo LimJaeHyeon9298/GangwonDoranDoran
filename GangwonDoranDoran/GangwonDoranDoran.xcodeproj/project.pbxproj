@@ -27,6 +27,8 @@
 		4674B29D2C63965D00BCD451 /* Pods_GangwonDoranDoran.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07CD04092435197487D74ECC /* Pods_GangwonDoranDoran.framework */; };
 		4674B29E2C63965D00BCD451 /* Pods_GangwonDoranDoran.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07CD04092435197487D74ECC /* Pods_GangwonDoranDoran.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		467AB0312C5F56B20054E36D /* CommunityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467AB0302C5F56B20054E36D /* CommunityService.swift */; };
+		467AE16D2C84A9130084566F /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467AE16C2C84A9130084566F /* MainCollectionViewCell.swift */; };
+		467AE16F2C85338D0084566F /* SubContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467AE16E2C85338D0084566F /* SubContentCell.swift */; };
 		469B444D2C638EAC00B1C49B /* TermsAgreementViewCiontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469B444C2C638EAC00B1C49B /* TermsAgreementViewCiontroller.swift */; };
 		469B44512C6390C000B1C49B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469B44502C6390C000B1C49B /* MainViewController.swift */; };
 		469D90A32C131489000ABE8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D90A22C131489000ABE8C /* AppDelegate.swift */; };
@@ -116,6 +118,8 @@
 		464787F72C3F726E00E1558C /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomTabView.swift; path = ../../../../Umbrella/Umbrella/Umbrella/Controllers/CustomTabView.swift; sourceTree = "<group>"; };
 		46569F6F2C5AFBE500B94B22 /* FireStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreManager.swift; sourceTree = "<group>"; };
 		467AB0302C5F56B20054E36D /* CommunityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityService.swift; sourceTree = "<group>"; };
+		467AE16C2C84A9130084566F /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		467AE16E2C85338D0084566F /* SubContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubContentCell.swift; sourceTree = "<group>"; };
 		469B444C2C638EAC00B1C49B /* TermsAgreementViewCiontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAgreementViewCiontroller.swift; sourceTree = "<group>"; };
 		469B44502C6390C000B1C49B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		469D909F2C131489000ABE8C /* GangwonDoranDoran.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GangwonDoranDoran.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,6 +333,8 @@
 				462010092C84841C008B861D /* PagingTabBarCell.swift */,
 				4620100B2C84842E008B861D /* PagingView.swift */,
 				4620100D2C84843E008B861D /* PagingCollectionViewCell.swift */,
+				467AE16C2C84A9130084566F /* MainCollectionViewCell.swift */,
+				467AE16E2C85338D0084566F /* SubContentCell.swift */,
 				469D90D72C1315B4000ABE8C /* ViewController */,
 			);
 			path = View;
@@ -668,11 +674,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				467AE16F2C85338D0084566F /* SubContentCell.swift in Sources */,
 				469D91012C13257B000ABE8C /* SecondViewController.swift in Sources */,
 				469D90FB2C132165000ABE8C /* LoginViewController.swift in Sources */,
 				4609729C2C42C22000877020 /* ThirdCoordinator.swift in Sources */,
 				469B444D2C638EAC00B1C49B /* TermsAgreementViewCiontroller.swift in Sources */,
 				469D90A32C131489000ABE8C /* AppDelegate.swift in Sources */,
+				467AE16D2C84A9130084566F /* MainCollectionViewCell.swift in Sources */,
 				464787F82C3F726E00E1558C /* CustomTabView.swift in Sources */,
 				469D90FD2C1321AD000ABE8C /* MainTabController.swift in Sources */,
 				461D44E72C43F927003F42BE /* LoginCoordinator.swift in Sources */,

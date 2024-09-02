@@ -12,7 +12,8 @@ class PagingView: UIView {
     
     private let categoryTitleList: [String]
     private var catregoryLabelList: [String] = [
-     "여행코스 한눈에 보기",
+    "",
+    "여행코스 한눈에 보기",
      "다채로운 맛집 리스트 ",
      "힐링을 전하는 숙박지",
      "강원도의 역사 유적지",
@@ -20,22 +21,39 @@ class PagingView: UIView {
      "쇼핑의 재미를 느끼자"
     ]
     
-    private let categoryImageName: [String] = ["추천코스","추천맛집","추천숙박","역사유적지","추천축제","쇼핑명소"]
+    private let categoryImageName: [String] = ["","추천코스","추천맛집","추천숙박","역사유적지","추천축제","쇼핑명소"]
     
-    
+//    private lazy var scrollView: UIScrollView = {
+//           let scrollView = UIScrollView()
+//           scrollView.showsVerticalScrollIndicator = false
+//           scrollView.translatesAutoresizingMaskIntoConstraints = false
+//        scrollView.backgroundColor = .red
+//           return scrollView
+//       }()
+//       
+//       private lazy var contentView: UIView = {
+//           let view = UIView()
+//           view.translatesAutoresizingMaskIntoConstraints = false
+//           return view
+//       }()
+
     private let pagingTabBar: PagingTabBar
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
+       
         
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(PagingCollectionViewCell.self, forCellWithReuseIdentifier: PagingCollectionViewCell.identifier)
+        collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: MainCollectionViewCell.identifier)
         
         return collectionView
     }()
@@ -80,11 +98,21 @@ extension PagingView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PagingCollectionViewCell.identifier, for: indexPath) as? PagingCollectionViewCell else { return UICollectionViewCell() }
-        cell.setupView(title: categoryTitleList[indexPath.row], 
-                       mainLabel: catregoryLabelList[indexPath.row],
-                       imageName: categoryImageName[indexPath.row])
         
-        return cell
+        if indexPath.row == 0 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainCollectionViewCell.identifier, for: indexPath) as? MainCollectionViewCell else {
+                            return UICollectionViewCell()
+                        }
+                        return cell
+        } else {
+            cell.setupView(title: categoryTitleList[indexPath.row],
+                           mainLabel: catregoryLabelList[indexPath.row],
+                           imageName: categoryImageName[indexPath.row])
+            
+            return cell
+        }
+        
+        
     }
 }
 

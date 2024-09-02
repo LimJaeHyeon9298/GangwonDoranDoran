@@ -13,7 +13,7 @@ import SnapKit
 
 class HomeViewController: UIViewController {
 
-    private let categoryTitleList = ["코스", "맛집", "숙박", "역사","축제","쇼핑" ]
+    private let categoryTitleList = ["메인","코스", "맛집", "숙박", "역사","축제","쇼핑" ]
     
     private lazy var hahaButton = UIButton()
     private lazy var pagingTabBar = PagingTabBar(categoryTitleList: categoryTitleList)
