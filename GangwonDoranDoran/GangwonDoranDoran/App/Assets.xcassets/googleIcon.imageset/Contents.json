@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "ios_neutral_sq_na@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -9,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "ios_neutral_sq_na@1x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

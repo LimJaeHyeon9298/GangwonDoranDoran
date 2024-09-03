@@ -18,10 +18,25 @@ import KakaoSDKUser
 class LoginViewModel:NSObject {
     
     private var navigateToHomeSubject = PassthroughSubject<Void,Never>()
+    let loginActionSubject = PassthroughSubject<(LoginType,UIViewController),Never>()
+    private var cancellables = Set<AnyCancellable>()
     var navigationMainPublisher:AnyPublisher<Void,Never> {
         navigateToHomeSubject
             .eraseToAnyPublisher()
     }
+    
+    override init() {
+           super.init()
+           bind()
+       }
+    
+    private func bind() {
+            loginActionSubject
+                .sink { [weak self] (type, presentingViewController) in
+                    self?.loginAction(for: type, presentingViewController: presentingViewController)
+                }
+                .store(in: &cancellables)
+        }
     
     fileprivate var currentNonce: String?
     
@@ -38,9 +53,9 @@ class LoginViewModel:NSObject {
             loginWithApple(presentingViewController: presentingViewController)
             
             
-        case .guest:
-            print("guest 둘러보기")
-            navigateToHome()
+//        case .guest:
+//            print("guest 둘러보기")
+//            navigateToHome()
         }
     }
     

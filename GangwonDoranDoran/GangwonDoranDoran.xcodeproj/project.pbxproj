@@ -66,6 +66,7 @@
 		469EA1692C85C8A200CB69A4 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA1682C85C8A200CB69A4 /* NoticeViewController.swift */; };
 		469EA16B2C85C8B200CB69A4 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA16A2C85C8B200CB69A4 /* AppInfoViewController.swift */; };
 		46A7DB6D2C5C63500006DD90 /* TermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A7DB6C2C5C63500006DD90 /* TermViewController.swift */; };
+		46B930DF2C868F9300D6056C /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B930DE2C868F9300D6056C /* SocialLoginButton.swift */; };
 		46CA36CE2C3AD6070081A490 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 46CA36CD2C3AD6070081A490 /* FirebaseAuth */; };
 		46CA36D02C3B773A0081A490 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46CA36CF2C3B77390081A490 /* GoogleService-Info.plist */; };
 		46F1099D2C2ACE8D006AD5F6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F1099C2C2ACE8D006AD5F6 /* LoginViewModel.swift */; };
@@ -160,6 +161,7 @@
 		469EA16A2C85C8B200CB69A4 /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		46A7DB6C2C5C63500006DD90 /* TermViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermViewController.swift; sourceTree = "<group>"; };
 		46A7DB6E2C5C6BBF0006DD90 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		46B930DE2C868F9300D6056C /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		46CA36CF2C3B77390081A490 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		46F1099C2C2ACE8D006AD5F6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		46F1099E2C2AD41B006AD5F6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				467AE16C2C84A9130084566F /* MainCollectionViewCell.swift */,
 				467AE16E2C85338D0084566F /* SubContentCell.swift */,
 				467AE1702C8573880084566F /* SettingCell.swift */,
+				46B930DE2C868F9300D6056C /* SocialLoginButton.swift */,
 				469D90D72C1315B4000ABE8C /* ViewController */,
 			);
 			path = View;
@@ -714,6 +717,7 @@
 				4620100A2C84841C008B861D /* PagingTabBarCell.swift in Sources */,
 				46A7DB6D2C5C63500006DD90 /* TermViewController.swift in Sources */,
 				460972912C42C10800877020 /* SettingCoordinator.swift in Sources */,
+				46B930DF2C868F9300D6056C /* SocialLoginButton.swift in Sources */,
 				469D90DF2C13162C000ABE8C /* HomeViewModel.swift in Sources */,
 				4620100E2C84843E008B861D /* PagingCollectionViewCell.swift in Sources */,
 				469D90DD2C131608000ABE8C /* Fonts+.swift in Sources */,
