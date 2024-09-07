@@ -45,17 +45,18 @@ class AppCoordinator:Coordinator {
     }
     
     func start() {
-        if isUserLoggedIn() {
-//                   let mainCoordinator = MainCoordinator(navigationController: navigationController!)
-//                   addChild(coordinator: mainCoordinator)
-//                   mainCoordinator.start()
-            showMain()
-               } else {
-//                   let loginCoordinator = LoginCoordinator(navigationController: navigationController!)
-//                   addChild(coordinator: loginCoordinator)
-//                   loginCoordinator.start()
-                   showLogin()
-               }
+        showMain()
+//        if isUserLoggedIn() {
+////                   let mainCoordinator = MainCoordinator(navigationController: navigationController!)
+////                   addChild(coordinator: mainCoordinator)
+////                   mainCoordinator.start()
+//            showMain()
+//               } else {
+////                   let loginCoordinator = LoginCoordinator(navigationController: navigationController!)
+////                   addChild(coordinator: loginCoordinator)
+////                   loginCoordinator.start()
+//                   showLogin()
+//               }
     }
     
     func showLogin() {

@@ -12,9 +12,10 @@ import SnapKit
 
 
 class HomeViewController: UIViewController {
-
-    private let categoryTitleList = ["메인","코스", "맛집", "숙박", "역사","축제","쇼핑" ]
     
+    var viewModel: HomeViewModel
+    
+    private let categoryTitleList = ["메인","코스", "맛집", "숙박", "역사","축제","쇼핑" ]
     private lazy var hahaButton = UIButton()
     private lazy var pagingTabBar = PagingTabBar(categoryTitleList: categoryTitleList)
     private lazy var pagingView = PagingView(categoryTitleList: categoryTitleList, pagingTabBar: pagingTabBar)
@@ -22,10 +23,36 @@ class HomeViewController: UIViewController {
     weak var coordinator: Coordinator?
     var cancellables = Set<AnyCancellable>()
     
+    init(viewModel:HomeViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        setupBindings()
+        
     }
+    
+    private func setupBindings() {
+           let baseRequest = BaseRequest()
+           let request = LocationBasedListRequest(
+               baseRequest: baseRequest,
+               mapX: "126.981611",
+               mapY: "37.568477",
+               radius: "1000"
+           )
+           
+           viewModel.fetchTouristInfo(request: request)
+       }
+    
+    
+    
 }
 
 private extension HomeViewController {
