@@ -17,6 +17,8 @@ final class APIClient: APIServiceProtocol {
            guard let urlRequest = api.asURLRequest() else {
                return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
            }
+        
+        print("Request URL: \(urlRequest.url?.absoluteString ?? "Invalid URL")")
            
            return URLSession.shared.dataTaskPublisher(for: urlRequest)
                .tryMap { data, response -> Data in

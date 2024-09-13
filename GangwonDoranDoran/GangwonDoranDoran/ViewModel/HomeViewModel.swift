@@ -36,5 +36,22 @@ final class HomeViewModel {
         
         }
     
+    func fetchSearchKeyword(requset:SearchKeywordRequest) {
+        let apiRequest = EndPoint.searchKeyword1(request: requset)
+        
+        apiService.request(api: apiRequest, responseType: SearchKeywordResponse.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Request completed successfully.")
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            }, receiveValue: { response in
+                print("Received response: \(response)")
+            })
+            .store(in: &cancellables)
+    }
+    
     
 }

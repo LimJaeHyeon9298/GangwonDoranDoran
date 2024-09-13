@@ -47,8 +47,16 @@ class HomeViewController: UIViewController {
                mapY: "37.568477",
                radius: "1000"
            )
+        
+        let keyWord = "food".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "food"
+        
+        
+          let searchKeyword = SearchKeywordRequest(
+            baseRequest: baseRequest,
+            keyword: keyWord)
            
-           viewModel.fetchTouristInfo(request: request)
+     //      viewModel.fetchTouristInfo(request: request)
+        viewModel.fetchSearchKeyword(requset:searchKeyword)
        }
     
     
