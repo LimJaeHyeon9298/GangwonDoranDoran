@@ -89,5 +89,43 @@ final class HomeViewModel {
         
     }
     
+    func fetchPetTourInfo(request:DetailPetTourRequest) {
+        let apiRequest = EndPoint.detailPetTourInfo(request: request)
+        
+        apiService.request(api: apiRequest, responseType: DetailPetTourResponse.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Request completed successfully.")
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            }, receiveValue: { response in
+                print("Received response: \(response)")
+            })
+            .store(in: &cancellables)
+        
+        
+    }
+    
+    func fetchAreaBasedListInfo(request:AreaBasedListRequest) {
+        let apiRequest = EndPoint.areaBasedList1(request: request)
+        
+        
+        apiService.request(api: apiRequest, responseType: AreaBasedListResponse.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Request completed successfully.")
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            }, receiveValue: { response in
+                print("Received response: \(response)")
+            })
+            .store(in: &cancellables)
+            
+    }
+    
     
 }

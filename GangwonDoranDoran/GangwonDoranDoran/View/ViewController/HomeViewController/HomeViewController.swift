@@ -58,12 +58,17 @@ class HomeViewController: UIViewController {
         
         let festival = SearchFestivalRequest(baseRequest: baseRequest, eventStartDate: "20240914")
         
-        viewModel.fetchFestivalInfo(request: festival)
+     //   viewModel.fetchFestivalInfo(request: festival)
         
         
         let stay = SearchStayRequest(baseRequest: baseRequest)
         
+        let pet = DetailPetTourRequest(baseRequest: baseRequest)
         
+        let area = AreaBasedListRequest(baseRequest: baseRequest)
+     
+      //  viewModel.fetchAreaBasedListInfo(request: area)
+        //viewModel.fetchPetTourInfo(request: pet)
      //   viewModel.fetchStayInfo(request: stay)
            
      //      viewModel.fetchTouristInfo(request: request)

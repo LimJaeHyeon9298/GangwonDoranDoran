@@ -230,6 +230,98 @@ struct SearchStayRequest {
 }
 
 
+struct DetailPetTourRequest {
+    let baseRequest: BaseRequest
+    
+    var numOfRows: Int?
+    var pageNo: Int?
+    var arrange: String?
+    var contentId: String?
+    
+    func toParameter() -> [String:Any] {
+        var params = baseRequest.toParameters()
+        
+        
+        if let numOfRows = numOfRows {
+            params["numOfRows"] = numOfRows
+        }
+        if let pageNo = pageNo {
+            params["pageNo"] = pageNo
+        }
+
+        if let contentId = contentId {
+            params["contentId"] = contentId
+        }
+        
+        return params
+    }
+}
+
+
+
+struct AreaBasedListRequest {
+    let baseRequest: BaseRequest
+    
+    var numOfRows: Int?
+    var pageNo: Int?
+    var listYN: String?
+    var arrange: String?
+    var contentTypeId: String?
+    var areaCode: String?
+    var sigunguCode: String?
+    var cat1: String?
+    var cat2: String?
+    var cat3: String?
+    var modifiedtime: String?
+    
+    func toParameter() -> [String:Any] {
+        var params = baseRequest.toParameters()
+        
+        if let numOfRows = numOfRows {
+            params["numOfRows"] = numOfRows
+        }
+        if let pageNo = pageNo {
+            params["pageNo"] = pageNo
+        }
+
+        if let listYN = listYN {
+            params["listYN"] = listYN
+        }
+        if let arrange = arrange {
+            params["arrange"] = arrange
+        }
+        if let contentTypeId = contentTypeId {
+            params["contentTypeId"] = contentTypeId
+        }
+        if let areaCode = areaCode {
+            params["areaCode"] = areaCode
+        }
+        
+        if let cat1 = cat1 {
+            params["cat1"] = cat1
+        }
+        
+        if let cat2 = cat2 {
+            params["cat2"] = cat2
+        }
+        
+        if let cat3 = cat3 {
+            params["cat3"] = cat3
+        }
+        
+        if let modifiedtime = modifiedtime {
+            params["modifiedtime"] = modifiedtime
+        }
+        
+        return params
+        
+        
+    }
+    
+    
+}
+
+
 
 struct LocationBasedListResponse: Codable {
     let response: ResponseData
@@ -400,5 +492,87 @@ struct StayInfoResponse: Codable {
         let cat1: String
         let cat2: String
         let cat3: String
+    }
+}
+
+
+struct DetailPetTourResponse: Decodable {
+    let response: Response
+
+    struct Response: Decodable {
+        let header: Header
+        let body: Body
+    }
+
+    struct Header: Decodable {
+        let resultMsg: String
+        let resultCode: String
+    }
+
+    struct Body: Decodable {
+        let totalCount: String
+        let numOfRows: String
+        let pageNo: String
+        let items: Items
+    }
+
+    struct Items: Decodable {
+        let item: Item
+    }
+
+    struct Item: Decodable {
+        let acmpyPsblCpam: String
+        let relaRntlPrdlst: String
+        let acmpyNeedMtr: String
+        let relaFrnshPrdlst: String
+        let etcAcmpyInfo: String
+        let relaPurcPrdlst: String
+        let relaAcdntRiskMtr: String
+        let acmpyTypeCd: String
+        let relaPosesFclty: String
+        let contentid: String
+        let petTursmInfo: String
+    }
+}
+
+struct AreaBasedListResponse: Decodable {
+    let header: Header
+    let body: Body
+
+    struct Header: Decodable {
+        let resultCode: String
+        let resultMsg: String
+    }
+
+    struct Body: Decodable {
+        let items: Items
+    }
+
+    struct Items: Decodable {
+        let item: Item
+    }
+
+    struct Item: Decodable {
+        let firstimage: String
+        let firstimage2: String
+        let mapx: String
+        let mapy: String
+        let mlevel: String
+        let addr2: String
+        let areacode: String
+        let modifiedtime: String
+        let cpyrhtDivCd: String
+        let booktour: String
+        let cat1: String
+        let sigungucode: String
+        let tel: String
+        let title: String
+        let addr1: String
+        let cat2: String
+        let cat3: String
+        let contentid: String
+        let contenttypeid: String
+        let createdtime: String
+        let zipcode: String
     }
 }
