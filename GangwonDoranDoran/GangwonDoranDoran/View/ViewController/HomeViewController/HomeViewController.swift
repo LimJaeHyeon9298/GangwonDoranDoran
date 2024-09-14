@@ -60,6 +60,11 @@ class HomeViewController: UIViewController {
         
         viewModel.fetchFestivalInfo(request: festival)
         
+        
+        let stay = SearchStayRequest(baseRequest: baseRequest)
+        
+        
+     //   viewModel.fetchStayInfo(request: stay)
            
      //      viewModel.fetchTouristInfo(request: request)
        // viewModel.fetchSearchKeyword(requset:searchKeyword)

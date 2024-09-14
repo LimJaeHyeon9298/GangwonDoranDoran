@@ -188,6 +188,48 @@ struct SearchFestivalRequest {
 }
 
 
+struct SearchStayRequest {
+    let baseRequest: BaseRequest
+    
+    var numOfRows: Int?
+    var pageNo: Int?
+    var listYN: String?
+    var arrange: String?
+    var areaCode: String?
+    var sigunguCode: String?
+    var modifiedtime: String?
+    
+    func toParameter() -> [String:Any] {
+        var params = baseRequest.toParameters()
+        
+        
+        if let numOfRows = numOfRows {
+            params["numOfRows"] = numOfRows
+        }
+        if let pageNo = pageNo {
+            params["pageNo"] = pageNo
+        }
+
+        if let listYN = listYN {
+            params["listYN"] = listYN
+        }
+        if let arrange = arrange {
+            params["arrange"] = arrange
+        }
+
+        if let areaCode = areaCode {
+            params["areaCode"] = areaCode
+        }
+        
+        if let modifiedtime = modifiedtime {
+            params["modifiedtime"] = modifiedtime
+        }
+        
+        return params
+    }
+}
+
+
 
 struct LocationBasedListResponse: Codable {
     let response: ResponseData
@@ -314,5 +356,49 @@ struct FestivalInfoResponse: Codable {
         let addr2: String
         let createdtime: String
         let cpyrhtDivCd: String
+    }
+}
+
+struct StayInfoResponse: Codable {
+    let header: Header
+    let body: Body
+
+    struct Header: Codable {
+        let resultCode: String
+        let resultMsg: String
+    }
+
+    struct Body: Codable {
+        let items: Items
+    }
+
+    struct Items: Codable {
+        let item: Item
+    }
+
+    struct Item: Codable {
+        let addr1: String
+        let cpyrhtDivCd: String
+        let mapy: String
+        let mlevel: String
+        let modifiedtime: String
+        let sigungucode: String
+        let tel: String
+        let title: String
+        let contentid: String
+        let contenttypeid: String
+        let createdtime: String
+        let benikia: String
+        let goodstay: String
+        let hanok: String
+        let firstimage: String
+        let firstimage2: String
+        let mapx: String
+        let addr2: String
+        let areacode: String
+        let booktour: String
+        let cat1: String
+        let cat2: String
+        let cat3: String
     }
 }
