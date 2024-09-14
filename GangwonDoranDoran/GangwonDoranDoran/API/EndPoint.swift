@@ -11,6 +11,7 @@ import Foundation
 enum EndPoint: Router {
     case locationBasedList1(request: LocationBasedListRequest)
     case searchKeyword1(request: SearchKeywordRequest)
+    case searchFestival1(request: SearchFestivalRequest)
     
     var baseURL: String {
         return "https://apis.data.go.kr/B551011/KorService1"
@@ -22,6 +23,8 @@ enum EndPoint: Router {
             return "/locationBasedList1"
         case .searchKeyword1:
             return "/searchKeyword1"
+        case .searchFestival1:
+            return "/searchFestival1"
         }
     }
 
@@ -38,6 +41,8 @@ enum EndPoint: Router {
         case .locationBasedList1(let request):
             return request.toParameters()
         case .searchKeyword1(request: let request):
+            return request.toParameter()
+        case .searchFestival1(request: let request):
             return request.toParameter()
         }
     }

@@ -54,9 +54,15 @@ class HomeViewController: UIViewController {
           let searchKeyword = SearchKeywordRequest(
             baseRequest: baseRequest,
             keyword: keyWord)
+        
+        
+        let festival = SearchFestivalRequest(baseRequest: baseRequest, eventStartDate: "20240914")
+        
+        viewModel.fetchFestivalInfo(request: festival)
+        
            
      //      viewModel.fetchTouristInfo(request: request)
-        viewModel.fetchSearchKeyword(requset:searchKeyword)
+       // viewModel.fetchSearchKeyword(requset:searchKeyword)
        }
     
     

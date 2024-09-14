@@ -140,6 +140,54 @@ struct SearchKeywordRequest {
     
 }
 
+struct SearchFestivalRequest {
+    let baseRequest: BaseRequest
+    let eventStartDate: String
+    
+    var numOfRows: Int?
+    var pageNo: Int?
+    var listYN: String?
+    var arrange: String?
+    var eventEndDate: String?
+    var areaCode: String?
+    var sigunguCode: String?
+    var modifiedtime: String?
+    
+    func toParameter() -> [String:Any] {
+        var params = baseRequest.toParameters()
+        
+        params["eventStartDate"] = eventStartDate
+        
+        if let numOfRows = numOfRows {
+            params["numOfRows"] = numOfRows
+        }
+        if let pageNo = pageNo {
+            params["pageNo"] = pageNo
+        }
+
+        if let listYN = listYN {
+            params["listYN"] = listYN
+        }
+        if let arrange = arrange {
+            params["arrange"] = arrange
+        }
+        if let eventEndDate = eventEndDate {
+            params["eventEndDate"] = eventEndDate
+        }
+        if let areaCode = areaCode {
+            params["areaCode"] = areaCode
+        }
+        
+        if let modifiedtime = modifiedtime {
+            params["modifiedtime"] = modifiedtime
+        }
+        
+        return params
+    }
+    
+}
+
+
 
 struct LocationBasedListResponse: Codable {
     let response: ResponseData
@@ -194,6 +242,48 @@ struct LocationBasedListResponse: Codable {
 struct SearchKeywordResponse: Codable {
     let header: String
     let body: Body
+
+    struct Body: Codable {
+        let items: Items
+    }
+
+    struct Items: Codable {
+        let item: Item
+    }
+
+    struct Item: Codable {
+        let firstimage: String
+        let sigungucode: String
+        let cat1: String
+        let cat2: String
+        let cat3: String
+        let contentid: String
+        let booktour: String
+        let tel: String
+        let title: String
+        let addr1: String
+        let areacode: String
+        let mapy: String
+        let mlevel: String
+        let modifiedtime: String
+        let firstimage2: String
+        let mapx: String
+        let contenttypeid: String
+        let addr2: String
+        let createdtime: String
+        let cpyrhtDivCd: String
+    }
+}
+
+
+struct FestivalInfoResponse: Codable {
+    let header: Header
+    let body: Body
+
+    struct Header: Codable {
+        let resultCode: String
+        let resultMsg: String
+    }
 
     struct Body: Codable {
         let items: Items
