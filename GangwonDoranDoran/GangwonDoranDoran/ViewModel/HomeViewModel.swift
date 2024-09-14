@@ -127,5 +127,23 @@ final class HomeViewModel {
             
     }
     
+    func fetchCategoryCode(request:CategoryCodeRequest) {
+        let apiRequest = EndPoint.categoryCode(request: request)
+        
+        
+        apiService.request(api: apiRequest, responseType: CategoryCodeResponse.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Request completed successfully.")
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            }, receiveValue: { response in
+                print("Received response: \(response)")
+            })
+            .store(in: &cancellables)
+    }
+    
     
 }

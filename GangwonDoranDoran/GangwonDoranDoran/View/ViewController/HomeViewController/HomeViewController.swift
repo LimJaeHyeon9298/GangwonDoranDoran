@@ -60,13 +60,13 @@ class HomeViewController: UIViewController {
         
      //   viewModel.fetchFestivalInfo(request: festival)
         
-        
+        let category = CategoryCodeRequest(baseRequest: baseRequest)
         let stay = SearchStayRequest(baseRequest: baseRequest)
         
         let pet = DetailPetTourRequest(baseRequest: baseRequest)
         
         let area = AreaBasedListRequest(baseRequest: baseRequest)
-     
+        viewModel.fetchCategoryCode(request: category)
       //  viewModel.fetchAreaBasedListInfo(request: area)
         //viewModel.fetchPetTourInfo(request: pet)
      //   viewModel.fetchStayInfo(request: stay)

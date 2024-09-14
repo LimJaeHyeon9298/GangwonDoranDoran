@@ -372,6 +372,58 @@ struct LocationBasedListResponse: Codable {
     }
 }
 
+struct CategoryCodeRequest {
+    let baseRequest: BaseRequest
+    
+    var numOfRows: Int?
+    var pageNo: Int?
+    var listYN: String?
+    var arrange: String?
+    var contentTypeId: String?
+    var cat1: String?
+    var cat2: String?
+    var cat3: String?
+    
+    func toParameter() -> [String:Any] {
+        var params = baseRequest.toParameters()
+        
+        if let numOfRows = numOfRows {
+            params["numOfRows"] = numOfRows
+        }
+        if let pageNo = pageNo {
+            params["pageNo"] = pageNo
+        }
+
+        if let listYN = listYN {
+            params["listYN"] = listYN
+        }
+        if let arrange = arrange {
+            params["arrange"] = arrange
+        }
+        if let contentTypeId = contentTypeId {
+            params["contentTypeId"] = contentTypeId
+        }
+        
+        if let cat1 = cat1 {
+            params["cat1"] = cat1
+        }
+        
+        if let cat2 = cat2 {
+            params["cat2"] = cat2
+        }
+        
+        if let cat3 = cat3 {
+            params["cat3"] = cat3
+        }
+        
+        return params
+        
+        
+    }
+    
+    
+}
+
 
 struct SearchKeywordResponse: Codable {
     let header: String
@@ -574,5 +626,37 @@ struct AreaBasedListResponse: Decodable {
         let contenttypeid: String
         let createdtime: String
         let zipcode: String
+    }
+}
+
+
+struct CategoryCodeResponse: Decodable {
+    let response: Response
+
+    struct Response: Decodable {
+        let header: Header
+        let body: Body
+    }
+
+    struct Header: Decodable {
+        let resultCode: String
+        let resultMsg: String
+    }
+
+    struct Body: Decodable {
+        let items: Items
+        let numOfRows: Int
+        let pageNo: Int
+        let totalCount: Int
+    }
+
+    struct Items: Decodable {
+        let item: [Item]
+    }
+
+    struct Item: Decodable {
+        let code: String
+        let name: String
+        let rnum: Int
     }
 }
