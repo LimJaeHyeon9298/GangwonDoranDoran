@@ -149,7 +149,62 @@ final class HomeViewModel {
         let apiRequest = EndPoint.detailImage1(request: request)
         
         
-        apiService.request(api: apiRequest, responseType: CategoryCodeResponse.self)
+        apiService.request(api: apiRequest, responseType: DetailImageResponse.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Request completed successfully.")
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            }, receiveValue: { response in
+                print("Received response: \(response)")
+            })
+            .store(in: &cancellables)
+    }
+    
+    
+    
+    func fetchDetailCommon(request:DetailCommonRequest) {
+        let apiRequest = EndPoint.detailCommon1(request: request)
+        
+        
+        apiService.request(api: apiRequest, responseType: DetailCommonResponse.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Request completed successfully.")
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            }, receiveValue: { response in
+                print("Received response: \(response)")
+            })
+            .store(in: &cancellables)
+    }
+    
+    func fetchDetailIntro(request:DetailIntroRequest) {
+        let apiRequest = EndPoint.detailIntro1(request: request)
+        
+        
+        apiService.request(api: apiRequest, responseType: DetailIntroResponse.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Request completed successfully.")
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            }, receiveValue: { response in
+                print("Received response: \(response)")
+            })
+            .store(in: &cancellables)
+    }
+    
+    func fetchDetailInfo(request:DetailInfoRequest) {
+        let apiRequest = EndPoint.detailInfo1(request: request)
+        
+        apiService.request(api: apiRequest, responseType: DetailInfoResponse.self)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
