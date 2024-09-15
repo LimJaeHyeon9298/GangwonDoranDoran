@@ -630,6 +630,33 @@ struct AreaBasedSyncListRequest {
     }
 }
 
+struct AreaCodeRequest {
+    let baseRequest: BaseRequest
+ 
+    
+    var numOfRows: String?
+    var pageNo: String?
+    var areaCode: String?
+
+    func toParameter() -> [String:Any] {
+        var params = baseRequest.toParameters()
+    
+    
+        if let numOfRows = numOfRows {
+            params["numOfRows"] = numOfRows
+        }
+        if let pageNo = pageNo {
+            params["pageNo"] = pageNo
+        }
+        if let areaCode = areaCode {
+            params["areaCode"] = areaCode
+        }
+
+        return params
+        
+    }
+}
+
 
 
 struct SearchKeywordResponse: Codable {
@@ -1221,5 +1248,37 @@ struct AreaBasedSyncListResponse: Decodable {
         let firstimage: String
         let firstimage2: String
         let zipcode: String
+    }
+}
+
+
+struct AreaCodeResponse: Decodable {
+    let response: Response
+
+    struct Response: Decodable {
+        let header: Header
+        let body: Body
+    }
+
+    struct Header: Decodable {
+        let resultCode: String
+        let resultMsg: String
+    }
+
+    struct Body: Decodable {
+        let numOfRows: Int
+        let pageNo: Int
+        let totalCount: Int
+        let items: Items
+    }
+
+    struct Items: Decodable {
+        let item: Item
+    }
+
+    struct Item: Decodable {
+        let code: String
+        let name: String
+        let rnum: String
     }
 }

@@ -21,6 +21,7 @@ enum EndPoint: Router {
     case detailIntro1(request: DetailIntroRequest)
     case detailInfo1(request: DetailInfoRequest)
     case areaBasedSyncList(request: AreaBasedSyncListRequest)
+    case areaCode(request: AreaCodeRequest)
     
     
     var baseURL: String {
@@ -53,6 +54,8 @@ enum EndPoint: Router {
             return "/detailInfo1"
         case .areaBasedSyncList:
             return "/areaBasedSyncList1"
+        case .areaCode(request: let request):
+            return "/areaCode1"
         }
     }
 
@@ -89,6 +92,8 @@ enum EndPoint: Router {
         case .detailInfo1(request: let request):
             return request.toParameter()
         case .areaBasedSyncList(request: let request):
+            return request.toParameter()
+        case .areaCode(request: let request):
             return request.toParameter()
         }
     }

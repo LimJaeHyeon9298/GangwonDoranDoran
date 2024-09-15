@@ -236,4 +236,21 @@ final class HomeViewModel {
     }
     
     
+    func fetchAreaCode(request:AreaCodeRequest) {
+        let apiRequest = EndPoint.areaCode(request: request)
+        
+        apiService.request(api: apiRequest, responseType: AreaCodeResponse.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Request completed successfully.")
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            }, receiveValue: { response in
+                print("Received response: \(response)")
+            })
+            .store(in: &cancellables)
+    }
+    
 }
