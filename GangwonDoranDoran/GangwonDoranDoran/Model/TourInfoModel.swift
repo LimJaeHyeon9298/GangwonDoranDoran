@@ -566,6 +566,72 @@ struct DetailInfoRequest {
     }
 }
 
+struct AreaBasedSyncListRequest {
+    let baseRequest: BaseRequest
+
+    
+    var numOfRows: String?
+    var pageNo: String?
+    var showflag: String?
+    var modifiedtime: String?
+    var listYN: String?
+    var arrange: String?
+    var contentTypeId: String?
+    var areaCode: String?
+    var sigunguCode: String?
+    var cat1: String?
+    var cat2: String?
+    var cat3: String?
+    
+
+    func toParameter() -> [String:Any] {
+        var params = baseRequest.toParameters()
+        
+        if let numOfRows = numOfRows {
+            params["numOfRows"] = numOfRows
+        }
+        if let pageNo = pageNo {
+            params["pageNo"] = pageNo
+        }
+        if let showflag = showflag {
+            params["showflag"] = showflag
+        }
+        if let modifiedtime = modifiedtime {
+            params["modifiedtime"] = modifiedtime
+        }
+        if let listYN = listYN {
+            params["listYN"] = listYN
+        }
+        if let arrange = arrange {
+            params["arrange"] = arrange
+        }
+        if let contentTypeId = contentTypeId {
+            params["contentTypeId"] = contentTypeId
+        }
+        if let areaCode = areaCode {
+            params["areaCode"] = areaCode
+        }
+        
+        if let sigunguCode = sigunguCode {
+            params["sigunguCode"] = sigunguCode
+        }
+        if let cat1 = cat1 {
+            params["cat1"] = cat1
+        }
+        if let cat2 = cat2 {
+            params["cat2"] = cat2
+        }
+        if let cat3 = cat3 {
+            params["cat3"] = cat3
+        }
+
+        return params
+        
+    }
+}
+
+
+
 struct SearchKeywordResponse: Codable {
     let header: String
     let body: Body
@@ -1112,5 +1178,48 @@ struct DetailInfoResponse: Decodable {
         let cpyrhtDivCd3: String
         let cpyrhtDivCd4: String
         let cpyrhtDivCd5: String
+    }
+}
+
+struct AreaBasedSyncListResponse: Decodable {
+    let header: Header
+    let body: Body
+
+    struct Header: Decodable {
+        let resultCode: String
+        let resultMsg: String
+    }
+
+    struct Body: Decodable {
+        let items: Items
+    }
+
+    struct Items: Decodable {
+        let item: Item
+    }
+
+    struct Item: Decodable {
+        let mapx: String
+        let mapy: String
+        let mlevel: String
+        let modifiedtime: String
+        let showflag: String
+        let sigungucode: String
+        let tel: String
+        let title: String
+        let addr1: String
+        let addr2: String
+        let areacode: String
+        let booktour: String
+        let cat1: String
+        let cat2: String
+        let cat3: String
+        let contentid: String
+        let contenttypeid: String
+        let createdtime: String
+        let cpyrhtDivCd: String
+        let firstimage: String
+        let firstimage2: String
+        let zipcode: String
     }
 }

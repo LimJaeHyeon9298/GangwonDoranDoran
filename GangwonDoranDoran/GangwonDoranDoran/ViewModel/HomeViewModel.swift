@@ -218,5 +218,22 @@ final class HomeViewModel {
             .store(in: &cancellables)
     }
     
+    func fetchAreaBasedSyncList(request:AreaBasedSyncListRequest) {
+        let apiRequest = EndPoint.areaBasedSyncList(request: request)
+        
+        apiService.request(api: apiRequest, responseType: AreaBasedListResponse.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Request completed successfully.")
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            }, receiveValue: { response in
+                print("Received response: \(response)")
+            })
+            .store(in: &cancellables)
+    }
+    
     
 }

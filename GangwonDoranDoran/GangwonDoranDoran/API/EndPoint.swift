@@ -20,6 +20,7 @@ enum EndPoint: Router {
     case detailCommon1(request: DetailCommonRequest)
     case detailIntro1(request: DetailIntroRequest)
     case detailInfo1(request: DetailInfoRequest)
+    case areaBasedSyncList(request: AreaBasedSyncListRequest)
     
     
     var baseURL: String {
@@ -50,6 +51,8 @@ enum EndPoint: Router {
             return "/detailIntro1"
         case .detailInfo1:
             return "/detailInfo1"
+        case .areaBasedSyncList:
+            return "/areaBasedSyncList1"
         }
     }
 
@@ -84,6 +87,8 @@ enum EndPoint: Router {
         case .detailIntro1(request: let request):
             return request.toParameter()
         case .detailInfo1(request: let request):
+            return request.toParameter()
+        case .areaBasedSyncList(request: let request):
             return request.toParameter()
         }
     }
