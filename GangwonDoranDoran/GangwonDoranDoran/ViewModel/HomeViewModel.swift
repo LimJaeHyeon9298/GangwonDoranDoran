@@ -145,5 +145,23 @@ final class HomeViewModel {
             .store(in: &cancellables)
     }
     
+    func fetchDetailImage(request:DetailImageRequest) {
+        let apiRequest = EndPoint.detailImage1(request: request)
+        
+        
+        apiService.request(api: apiRequest, responseType: CategoryCodeResponse.self)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Request completed successfully.")
+                case .failure(let error):
+                    print("Error: \(error.localizedDescription)")
+                }
+            }, receiveValue: { response in
+                print("Received response: \(response)")
+            })
+            .store(in: &cancellables)
+    }
+    
     
 }

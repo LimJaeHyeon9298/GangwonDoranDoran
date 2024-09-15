@@ -66,7 +66,11 @@ class HomeViewController: UIViewController {
         let pet = DetailPetTourRequest(baseRequest: baseRequest)
         
         let area = AreaBasedListRequest(baseRequest: baseRequest)
-        viewModel.fetchCategoryCode(request: category)
+      //  viewModel.fetchCategoryCode(request: category)
+        
+      //  let detailImage = DetailImageRequest(baseRequest: baseRequest, contentId: <#T##String#>)
+        
+        
       //  viewModel.fetchAreaBasedListInfo(request: area)
         //viewModel.fetchPetTourInfo(request: pet)
      //   viewModel.fetchStayInfo(request: stay)

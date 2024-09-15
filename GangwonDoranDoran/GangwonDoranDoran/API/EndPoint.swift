@@ -16,6 +16,7 @@ enum EndPoint: Router {
     case detailPetTourInfo(request: DetailPetTourRequest)
     case areaBasedList1(request:AreaBasedListRequest)
     case categoryCode(request:CategoryCodeRequest)
+    case detailImage1(request:DetailImageRequest)
     
     var baseURL: String {
         return "https://apis.data.go.kr/B551011/KorService1"
@@ -37,6 +38,8 @@ enum EndPoint: Router {
             return "/areaBasedList1"
         case .categoryCode:
             return "/categoryCode1"
+        case .detailImage1:
+            return "/detailImage1"
         }
     }
 
@@ -63,6 +66,8 @@ enum EndPoint: Router {
         case .areaBasedList1(request: let request):
             return request.toParameter()
         case .categoryCode(request: let request):
+            return request.toParameter()
+        case .detailImage1(request: let request):
             return request.toParameter()
         }
     }

@@ -424,6 +424,43 @@ struct CategoryCodeRequest {
     
 }
 
+struct DetailImageRequest {
+    let baseRequest: BaseRequest
+    let contentId: String
+    
+    var imageYN: Int?
+    var subImageYN: Int?
+    var numOfRows: String?
+    var pageNo: String?
+
+    func toParameter() -> [String:Any] {
+        var params = baseRequest.toParameters()
+        
+        params["contentId"] = contentId
+        
+        if let imageYN = imageYN {
+            params["imageYN"] = imageYN
+        }
+        if let subImageYN = subImageYN {
+            params["subImageYN"] = subImageYN
+        }
+        
+        if let numOfRows = numOfRows {
+            params["numOfRows"] = numOfRows
+        }
+        if let pageNo = pageNo {
+            params["pageNo"] = pageNo
+        }
+
+ 
+        return params
+        
+        
+    }
+    
+    
+}
+
 
 struct SearchKeywordResponse: Codable {
     let header: String
@@ -658,5 +695,35 @@ struct CategoryCodeResponse: Decodable {
         let code: String
         let name: String
         let rnum: Int
+    }
+}
+
+struct DetailImageResponse: Decodable {
+    let header: Header
+    let body: Body
+    
+    struct Header: Decodable {
+        let resultCode: String
+        let resultMsg: String
+    }
+    
+    struct Body: Decodable {
+        let numOfRows: Int
+        let pageNo: Int
+        let totalCount: Int
+        let items: Items
+    }
+    
+    struct Items: Decodable {
+        let item: Item
+    }
+    
+    struct Item: Decodable {
+        let contentid: String
+        let imgname: String
+        let originimgurl: String
+        let serialnum: String
+        let smallimageurl: String
+        let cpyrhtDivCd: String
     }
 }
