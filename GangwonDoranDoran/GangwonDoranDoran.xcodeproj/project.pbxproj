@@ -70,6 +70,8 @@
 		469EA1692C85C8A200CB69A4 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA1682C85C8A200CB69A4 /* NoticeViewController.swift */; };
 		469EA16B2C85C8B200CB69A4 /* AppInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469EA16A2C85C8B200CB69A4 /* AppInfoViewController.swift */; };
 		46A7DB6D2C5C63500006DD90 /* TermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A7DB6C2C5C63500006DD90 /* TermViewController.swift */; };
+		46B75B7E2C9867520023E7E6 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B75B7D2C9867520023E7E6 /* EmptyView.swift */; };
+		46B75B802C9868830023E7E6 /* BookMarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B75B7F2C9868830023E7E6 /* BookMarkCell.swift */; };
 		46B930DF2C868F9300D6056C /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B930DE2C868F9300D6056C /* SocialLoginButton.swift */; };
 		46BC58C22C96E5CE00358A6C /* CommunityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC58C12C96E5CE00358A6C /* CommunityCell.swift */; };
 		46BC58C42C96F01400358A6C /* CommunityThumbnailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BC58C32C96F01400358A6C /* CommunityThumbnailCell.swift */; };
@@ -171,6 +173,8 @@
 		469EA16A2C85C8B200CB69A4 /* AppInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewController.swift; sourceTree = "<group>"; };
 		46A7DB6C2C5C63500006DD90 /* TermViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermViewController.swift; sourceTree = "<group>"; };
 		46A7DB6E2C5C6BBF0006DD90 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		46B75B7D2C9867520023E7E6 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		46B75B7F2C9868830023E7E6 /* BookMarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarkCell.swift; sourceTree = "<group>"; };
 		46B930DE2C868F9300D6056C /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
 		46BC58C12C96E5CE00358A6C /* CommunityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCell.swift; sourceTree = "<group>"; };
 		46BC58C32C96F01400358A6C /* CommunityThumbnailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityThumbnailCell.swift; sourceTree = "<group>"; };
@@ -377,6 +381,8 @@
 				46B930DE2C868F9300D6056C /* SocialLoginButton.swift */,
 				46BC58C12C96E5CE00358A6C /* CommunityCell.swift */,
 				46BC58C32C96F01400358A6C /* CommunityThumbnailCell.swift */,
+				46B75B7D2C9867520023E7E6 /* EmptyView.swift */,
+				46B75B7F2C9868830023E7E6 /* BookMarkCell.swift */,
 				469D90D72C1315B4000ABE8C /* ViewController */,
 			);
 			path = View;
@@ -726,6 +732,7 @@
 				469D90FB2C132165000ABE8C /* LoginViewController.swift in Sources */,
 				4609729C2C42C22000877020 /* ThirdCoordinator.swift in Sources */,
 				464337FC2C8BFE8D00D9DDCF /* APIClient.swift in Sources */,
+				46B75B7E2C9867520023E7E6 /* EmptyView.swift in Sources */,
 				467AE1752C8582FD0084566F /* WritePostListViewController.swift in Sources */,
 				469B444D2C638EAC00B1C49B /* TermsAgreementViewCiontroller.swift in Sources */,
 				469D90A32C131489000ABE8C /* AppDelegate.swift in Sources */,
@@ -767,6 +774,7 @@
 				469D90FF2C1323E2000ABE8C /* FirstViewController.swift in Sources */,
 				4620100C2C84842E008B861D /* PagingView.swift in Sources */,
 				469D91032C1327E4000ABE8C /* ThirdViewController.swift in Sources */,
+				46B75B802C9868830023E7E6 /* BookMarkCell.swift in Sources */,
 				460972932C42C12D00877020 /* HomeCoordinator.swift in Sources */,
 				462010082C848402008B861D /* PagingTabBar.swift in Sources */,
 			);
