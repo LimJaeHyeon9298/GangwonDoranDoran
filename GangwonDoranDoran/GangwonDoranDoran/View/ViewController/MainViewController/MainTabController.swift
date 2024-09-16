@@ -32,7 +32,7 @@ class MainTabController: UITabBarController {
     
     func setupTabBar() {
         customTabBar.frame = CGRect(x: 0, y: self.view.frame.height - 80, width: self.view.frame.width, height: 200)
-        customTabBar.backgroundColor = .clear
+        customTabBar.backgroundColor = .white
         
         self.view.addSubview(customTabBar)
 
